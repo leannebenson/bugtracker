@@ -1,0 +1,55 @@
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Welcome to Bug Tracker</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/addticket/">Add Ticket</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout/">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login/">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+<div class="container">
+    <a href="/edit/{{ticket.id}}">Edit Ticket</a>
+    <h1><strong>Ticket Detail</strong></h1>
+    <br>
+    <br>
+    <h2>Ticket Number: {{ticket.id}}</h2>
+    <br>
+    <p><strong>Ticket Title:</strong>{{ticket.title}}</p>
+    <p><strong>Ticket Description:</strong> {{ticket.description}}</p>
+    <p>
+        <strong>Opened By:</strong><a href="/user/{{ticket.open_user}}">{{ticket.open_user}}</a>
+    </p>
+    <p><strong>Current Status:</strong> {{ticket.status}}</p>
+    <p>
+        <strong>Assigned To:</strong>
+        <a href="/user/{{ticket.user_assigned}}">{{ticket.user_assigned}}</a>
+    </p>
+    <p>
+        <strong>Completed By:</strong>
+        <a href="/user/{{ticket.user_completed}}">{{ticket.user_completed}}</a>
+    </p>
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Actions
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/assign/{{ticket.id}}">
+                Take over Ticket</a>
+            <a class="dropdown-item" href="/completed/{{ticket.id}}">Mark as Completed</a>
+            <a class="dropdown-item" href="/invalid/{{ticket.id}}">Mark as Invalid</a>
+        </div>
+    </div>
+</div>
